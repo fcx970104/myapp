@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>box-position</title>
+  <style>
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .elem {
+      border: solid rgb(59, 55, 43) 1px;
+    }
+
+    .elem-green {
+      border: solid #FDC72F 1px;
+    }
+
+    .box0 {
+      width: 100%;
+      height: auto;
+    }
+
+    .box {
+      width: 50px;
+      height: 50px;
+      /* display: inline-block; */
+      margin: 1em;
+      float: left;
+    }
+
+    .box0::before {
+      content: '';
+      clear: both;
+    }
+
+    .box2 {
+      width: 1300px;
+      height: 100px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box0">
+    <div class="box elem-green"></div>
+    <div class="box elem-green"></div>
+    <div class="box elem-green"></div>
+    <div class="box elem-green"></div>
+    <div class="box elem-green"></div>
+    <div class="box elem-green"></div>
+    <div class="box elem-green"></div>
+    <div class="box elem-green"></div>
+    <div class="box elem-green"></div>
+    <div class="box elem-green"></div>
+    <div class="box elem-green"></div>
+    <div class="box elem-green"></div>
+    <div class="box2 elem"></div>
+    <div class="box2 elem"></div>
+  </div>
+</body>
+
+</html>

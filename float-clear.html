@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>float-clear</title>
+  <style>
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .elem-green {
+      border: solid #FDC72F 3px;
+    }
+
+    /* clear */
+    .box {
+      float: left;
+      width: 200px;
+      height: 100px;
+      margin: 1em;
+    }
+
+    .elem {
+      border: solid #6AC5AC 3px;
+      position: relative;
+    }
+
+    p {
+      margin: 1em 0;
+    }
+
+    .elem p {
+      padding: 0 1em;
+    }
+
+    .label {
+      top: 0;
+      left: 0;
+      padding: 0 3px 3px 0;
+    }
+
+    .endlabel {
+      right: 0;
+      bottom: 0;
+      padding: 3px 0 0 3px;
+    }
+
+    .label,
+    .endlabel {
+      position: absolute;
+      background-color: #6AC5AC;
+      color: #414142;
+      line-height: 1em;
+    }
+
+    .elem-green {
+      border: solid #FDC72F 3px;
+    }
+
+    .elem-green>.label,
+    .elem-green>.endlabel {
+      background-color: #FDC72F;
+    }
+
+    .after-box {
+      clear: left;
+    }
+
+    /* clear */
+
+    /* 浮动布局例子 */
+    .clearfix:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+
+    nav {
+      float: left;
+      width: 200px;
+      height: 200px;
+    }
+
+    .elem-red {
+      border: solid #D64078 3px;
+    }
+
+    .ipsum {
+      color: #734161;
+      background-color: #eee;
+    }
+
+    .section {
+      margin-left: 200px;
+    }
+
+    /* 浮动布局例子 */
+  </style>
+</head>
+
+<body>
+  <!-- clear1 -->
+  <div>
+    <div class="box elem">
+      <span class="label">
+        《div class="box"》
+      </span>
+      <p>
+        我感觉好像我在漂浮！
+      </p>
+      <span class="endlabel">
+        《/div》
+      </span>
+    </div>
+    <section class="elem elem-green">
+      <span class="label">《section class="elem"》</span>
+      <p>在这个例子中， section 元素实际上是在 div 之后的（译注：DOM结构上）。然而 div 元素是浮动到左边的，于是 section 中的文字就围绕了 div ，并且 section
+        元素包围了整个元素。如果我们想让 section 显示在浮动元素之后呢？</p>
+      <span class="endlabel">《/span》</span>
+    </section>
+
+    <!-- clear -->
+    <br />
+    <!-- clear2 -->
+    控制浮动
+    <div class="box elem">
+      <span class="label">
+        《div class="box"》
+      </span>
+      <p>
+        我感觉好像我在漂浮！
+      </p>
+      <span class="endlabel">
+        《/div》
+      </span>
+    </div>
+    <section class="elem elem-green after-box">
+      <span class="label">《section class="elem after-box"》</span>
+      <p>使用 clear 我们就可以将这个段落移动到浮动元素 div 下面。你需要用 left 值才能清除元素的向左浮动。你还可以用 right 或 both 来清除向右浮动或同时清除向左向右浮动。</p>
+      <span class="endlabel">《/span》</span>
+    </section>
+  </div>
+  <!-- clear -->
+
+  <!-- 清除浮动（clearfix hack） -->
+  <!-- clear1 --><b>清除浮动（clearfix hack）</b>
+  <div style="overflow: auto; zoom: 1;outline: 1px solid red;">
+    <div class="box elem">
+      <span class="label">
+        《div class="box"》
+      </span>
+      <p>
+        我感觉好像我在漂浮！
+      </p>
+      <span class="endlabel">
+        《/div》
+      </span>
+    </div>
+    <section class="elem elem-green">
+      <span class="label">《section class="elem"》</span>
+      <p>在这个例子中，box要比elem高，于是它就溢出到了容器外面！.clearfix {
+        overflow: auto;
+        zoom: 1;
+        } </p>
+      <span class="endlabel">《/span》</span>
+    </section>
+  </div>
+  <!-- clear -->
+  <!-- clear2 -->
+  <div>
+    <div class="box elem">
+      <span class="label">
+        《div class="box"》
+      </span>
+      <p>
+        我感觉好像我在漂浮！
+      </p>
+      <span class="endlabel">
+        《/div》
+      </span>
+    </div>
+    <section class="elem elem-green after-box">
+      <span class="label">《section class="elem after-box"》</span>
+      <p>使用 clear 我们就可以将这个段落移动到浮动元素 div 下面。你需要用 left 值才能清除元素的向左浮动。你还可以用 right 或 both 来清除向右浮动或同时清除向左向右浮动。</p>
+      <span class="endlabel">《/span》</span>
+    </section>
+  </div>
+  <!-- 清除浮动（clearfix hack） -->
+
+  <!-- 浮动布局例子 -->
+  <b>浮动布局例子</b>
+  <div class="clearfix elem">
+    <nav class="elem elem-red">
+      <span class="label">&lt;nav&gt;</span>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+      </ul>
+      <span class="endlabel">&lt;/nav&gt;</span>
+    </nav>
+    <section class="section elem elem-green">
+      <span class="label">&lt;section&gt;</span>
+      <p>这个例子和之前那个外观一模一样。请注意我们在容器上做了“清除浮动”。原本在这个例子中是不需要的，但是当 nav 比非浮动的内容还要高时就需要了。</p>
+      <span class="endlabel">&lt;/section&gt;</span>
+    </section>
+    <section class="section elem elem-green ipsum">
+      <span class="label">&lt;section&gt;</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi
+        lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget,
+        auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu,
+        lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi,
+        sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui
+        eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor
+        porta. Cras ac leo purus. Mauris quis diam velit.</p>
+      <span class="endlabel">&lt;/section&gt;</span>
+    </section>
+  </div>
+
+
+  <!-- 浮动布局例子end -->
+
+</body>
+
+</html>
