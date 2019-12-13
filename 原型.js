@@ -1,3 +1,4 @@
+console.log('---------------------------------------原型-----------------------------------------------')
 function Animal(name) {
   this.name = name;
 }
@@ -14,3 +15,4 @@ console.log(Function.prototype.__proto__.__proto__)  // null
 
 console.log(cat1.__proto__.constructor === Animal.prototype.constructor, cat1.__proto__.constructor === Animal)  //true  true        Animal
 console.log(cat1.__proto__.__proto__.constructor, Animal.prototype.__proto__.constructor, Function.prototype.__proto__.constructor === Object)   // Object
+console.log('-----------------------------------------------------------------------------------------')
